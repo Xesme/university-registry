@@ -78,6 +78,28 @@ class StudentTest extends PHPUnit_Framework_TestCase
         // Assert
         $this->assertEquals([$test_student, $test_student2], $result);
     }
+
+    function test_deleteAll()
+    {
+        // Arrange
+        $name = "Lisa Frank";
+        $admission = "2017-02-10";
+        $id = NULL;
+        $test_student = new Student($name, $admission, $id);
+        $test_student->save();
+
+        $name2 = "Lisa Frank";
+        $admission2 = "2017-02-10";
+        $test_student2 = new Student($name2, $admission2, $id);
+        $test_student2->save();
+
+        // Act
+        Student::deleteAll();
+        $result = Student::getAll();
+
+        // Assert
+        $this->assertEquals([], $result);
+    }
 }
 
  ?>
