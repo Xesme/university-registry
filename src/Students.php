@@ -17,7 +17,7 @@ class Student
 
     function getName()
     {
-        // return $this->name;
+        return $this->name;
     }
 
     function setName($new_name)
@@ -27,7 +27,7 @@ class Student
 
     function getAdmission()
     {
-        // return $this->admission;
+        return $this->admission;
     }
 
     function setAdmission($new_admin)
@@ -37,7 +37,7 @@ class Student
 
     function getId()
     {
-        // return $this->id;
+        return $this->id;
     }
 }
  ?>
