@@ -19,7 +19,7 @@ class StudentTest extends PHPUnit_Framework_TestCase
     protected function teardown()
     {
         Student::deleteAll();
-        
+
     }
     function test_construct()
     {
@@ -56,6 +56,27 @@ class StudentTest extends PHPUnit_Framework_TestCase
 
         // Assert
         $this->assertEquals($test_student, $result[0]);
+    }
+
+    function test_getAll()
+    {
+        // Arrange
+        $name = "Lisa Frank";
+        $admission = "2017-02-10";
+        $id = NULL;
+        $test_student = new Student($name, $admission, $id);
+        $test_student->save();
+
+        $name2 = "Lisa Frank";
+        $admission2 = "2017-02-10";
+        $test_student2 = new Student($name2, $admission2, $id);
+        $test_student2->save();
+
+        // Act
+        $result = Student::getAll();
+
+        // Assert
+        $this->assertEquals([$test_student, $test_student2], $result);
     }
 }
 
