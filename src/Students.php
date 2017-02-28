@@ -54,6 +54,11 @@ class Student
         $this->setName($new_name);
     }
 
+    function delete()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM students WHERE id = {$this->getId()};");
+    }
+
     // static functions
     static function getAll()
     {
