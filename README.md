@@ -1,16 +1,16 @@
-# Hair Salon Database
+# University Database
 
-#### _A webpage that simulates a hair salon database, 24th February 2017_
+#### _A webpage that simulates a university database, 28th February 2017_
 
 #### By _**Xia Amendolara**_
 
 ## Description
 
-This web application will simulate a management database for a hair salon, and allows the user to manage stylists as well as that stylists client list.
+
 
 ## Setup/Installation Requirements
 
-1. _Fork and clone this repository from_ [gitHub](https://github.com/xesme/hair-salon).
+1. _Fork and clone this repository from_ [gitHub](https://github.com/xesme/university-registry).
 2. Run `composer install --prefer-source --no-interaction` from project root
 3. Create a local server in the /web directory within the project folder using the command: `php -S localhost:8000`
 4. Open the directory http://localhost:8000/ in any standard web browser.
