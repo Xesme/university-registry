@@ -52,7 +52,6 @@ class StudentTest extends PHPUnit_Framework_TestCase
 
         // Act
         $result = Student::getAll();
-        // var_dump($result);
 
         // Assert
         $this->assertEquals($test_student, $result[0]);
@@ -99,6 +98,25 @@ class StudentTest extends PHPUnit_Framework_TestCase
 
         // Assert
         $this->assertEquals([], $result);
+    }
+
+    function test_update()
+    {
+        // Arrange
+        $name = "Lisa Frank";
+        $admission = "2017-02-10";
+        $id = NULL;
+        $test_student = new Student($name, $admission, $id);
+        $test_student->save();
+
+        $new_name = "Elisa Frank";
+
+        // Act
+        $test_student->update($new_name);
+        // var_dump($result);
+
+        // Assert
+        $this->assertEquals("Elisa Frank", $test_student->getName());
     }
 }
 
