@@ -20,7 +20,7 @@ class StudentTest extends PHPUnit_Framework_TestCase
     {
         // Arrange
         $name = "Lisa Frank";
-        $admission = "2/10/17";
+        $admission = "2017-02-10";
         $id = NULL;
         $test_student = new Student($name, $admission, $id);
 
@@ -29,12 +29,28 @@ class StudentTest extends PHPUnit_Framework_TestCase
         $result2 = $test_student->getAdmission();
         $result3 = $test_student->getId();
 
-
         // Assert
         $this->assertEquals($name, $result1);
         $this->assertEquals($admission, $result2);
         $this->assertEquals($id, $result3);
 
+    }
+
+    function test_save()
+    {
+        // Arrange
+        $name = "Lisa Frank";
+        $admission = "2017-02-10";
+        $id = NULL;
+        $test_student = new Student($name, $admission, $id);
+        $test_student->save();
+
+        // Act
+        $result = Student::getAll();
+        // var_dump($result);
+
+        // Assert
+        $this->assertEquals($test_student, $result[0]);
     }
 }
 

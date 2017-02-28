@@ -39,5 +39,29 @@ class Student
     {
         return $this->id;
     }
+
+    // functions CRUD
+
+    function save()
+    {
+        $GLOBALS['DB']->exec("INSERT INTO students (name, admission) VALUES ('{$this->getName()}', '{$this->getAdmission()}');");
+        $this->id = $GLOBALS['DB']->lastInsertId();
+    }
+
+    // static functions
+    static function getAll()
+    {
+        $returned_students = $GLOBALS['DB']->query("SELECT * FROM students;");
+        $students = array();
+        foreach($returned_students as $student)
+        {
+            $name = $student['name'];
+            $admission = $student['admission'];
+            $id = $student['id'];
+            $new_student = new Student($name, $admission, $id);
+            array_push($students, $new_student);
+        }
+        return $students;
+    }
 }
  ?>
