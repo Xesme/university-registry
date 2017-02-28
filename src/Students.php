@@ -63,5 +63,10 @@ class Student
         }
         return $students;
     }
+
+    static function deleteAll()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM students;");
+    }
 }
  ?>

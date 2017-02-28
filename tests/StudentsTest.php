@@ -16,6 +16,11 @@ $DB = new PDO($server, $username, $password);
 
 class StudentTest extends PHPUnit_Framework_TestCase
 {
+    protected function teardown()
+    {
+        Student::deleteAll();
+        
+    }
     function test_construct()
     {
         // Arrange
