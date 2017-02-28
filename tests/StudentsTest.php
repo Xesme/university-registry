@@ -140,6 +140,29 @@ class StudentTest extends PHPUnit_Framework_TestCase
         // var_dump();
         $this->assertEquals([$test_student2], Student::getAll());
     }
+
+    function test_find()
+    {
+        // Arrange
+        $name = "Lisa Frank";
+        $admission = "2017-02-10";
+        $id = NULL;
+        $test_student = new Student($name, $admission, $id);
+        $test_student->save();
+
+        $name2 = "Laura Palmer";
+        $admission2 = "2007-04-07";
+        $id2 = NULL;
+        $test_student2 = new Student($name2, $admission2, $id2);
+        $test_student2->save();
+
+        // Act
+        $test_student2->find();
+        $result = Student::getAll();
+
+        // Assert
+        $this->assertEquals($test_student2, $result[1]);
+    }
 }
 
  ?>

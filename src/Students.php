@@ -59,6 +59,11 @@ class Student
         $GLOBALS['DB']->exec("DELETE FROM students WHERE id = {$this->getId()};");
     }
 
+    function find()
+    {
+        $GLOBALS['DB']->query("SELECT * FROM students WHERE id = {$this->getId()};");
+    }
+
     // static functions
     static function getAll()
     {
