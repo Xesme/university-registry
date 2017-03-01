@@ -35,6 +35,28 @@ class CoursesTest extends PHPUnit_Framework_TestCase
 
 
     }
+
+    function test_save()
+    {
+        // Arrange
+        $course_name = "Intro to American History";
+        $course_number = "HA101";
+        $id = NULL;
+        $test_course = new Course($course_name, $course_number, $id);
+        $test_course->save();
+
+        // Act
+        $result = Course::getAll();
+
+        // Assert
+        $this->assertEquals($test_course, $result);
+
+    }
+
+    function test_getAll()
+    {
+        
+    }
 }
 
 
