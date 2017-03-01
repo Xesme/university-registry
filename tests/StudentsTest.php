@@ -9,7 +9,7 @@ require_once "src/Students.php";
 require_once "src/Courses.php";
 
 
-$server = "mysql:host=localhost:8889;dbname=university";
+$server = "mysql:host=localhost:8889;dbname=test_university";
 $username = "root";
 $password = "root";
 $DB = new PDO($server, $username, $password);
